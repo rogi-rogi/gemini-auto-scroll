@@ -1,0 +1,162 @@
+:root {
+    --bg-color: rgba(247, 249, 252, 0.7);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --text-color: #202124;
+    --hover-bg-color: rgba(0, 0, 0, 0.05);
+    --button-bg-color: #FFFFFF;
+    --button-hover-color: #FFFFFF;
+    --button-hover-bg-color: rgb(26, 115, 232, 0.8);
+    --fab-bg-color: #1a73e8;
+    --fab-icon-color: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: rgba(30, 31, 33, 0.7);
+        --border-color: rgba(255, 255, 255, 0.15);
+        --text-color: #e8eaed;
+        --hover-bg-color: rgba(255, 255, 255, 0.1);
+        --button-bg-color: rgba(138, 180, 248, 0.15);
+        --button-hover-color: #8ab4f8;
+        --button-hover-bg-color: rgba(138, 180, 248, 0.25);
+        --fab-bg-color: #8ab4f8;
+        --fab-icon-color: #202124;
+    }
+}
+
+#gemini-auto-scroll-container {
+    position: fixed;
+    bottom: 160px;
+    right: 20px;
+    width: 240px;
+    height: 304px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.fab {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    background-color: var(--fab-bg-color);
+    color: var(--fab-icon-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    pointer-events: auto;
+    z-index: 2; /* 확장 메뉴보다 위에 있도록 z-index 설정 */
+}
+
+.fab svg {
+    fill: currentColor;
+}
+
+.expanded-content {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    clip-path: circle(24px at calc(100% - 24px) calc(100% - 24px));
+    transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    z-index: 1; /* FAB보다 아래에 있도록 z-index 설정 */
+}
+
+#gemini-auto-scroll-container:hover .fab {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+#gemini-auto-scroll-container:hover .expanded-content {
+    clip-path: circle(150% at calc(100% - 24px) calc(100% - 24px));
+}
+
+.toc-list {
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+/* 목록이 비어있다면 empty-state를 표시 */
+.toc-list.is-empty {
+    display: none;
+}
+
+.toc-list::-webkit-scrollbar { display: none; }
+
+.toc-list li {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toc-list li:hover {
+    background-color: var(--hover-bg-color);
+    transform: translateX(-4px);
+}
+
+.toc-empty-state {
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+}
+.toc-empty-state:hover {
+    animation: bounce 0.8s ease-in-out;
+}
+.toc-empty-state.is-empty{
+    display: none;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(2px); }
+    75% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.scroll-bottom-btn {
+    border: none;
+    background-color: var(--button-bg-color);
+    color: var(--fab-bg-color);
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.scroll-bottom-btn:hover {
+    color: var(--button-hover-color);
+    background-color: var(--button-hover-bg-color);
+}

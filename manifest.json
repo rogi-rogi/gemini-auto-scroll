@@ -1,15 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Gemini Auto Scroller",
+  "name": "Gemini Auto Scroll",
   "version": "1.0",
-  "description": "Gemini 채팅창 크기 변경 시 스크롤을 자동으로 최하단으로 내립니다.",
+  "description": "Enhances Google Gemini with a dynamic Table of Contents (TOC) for easy navigation and scroll position restoration.",
   "icons": {
     "128" : "logo.png"
   },
+  "permissions": [
+    "webNavigation",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://gemini.google.com/app/*"],
-      "js": ["content.js"]
+      "matches": ["https://gemini.google.com/*"],
+      "css": ["styles.css"],
+      "js": ["constants.js", "ui.js", "features.js", "content.js", "background.js"]
     }
   ]
 }
