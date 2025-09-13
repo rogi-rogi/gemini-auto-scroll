@@ -8,9 +8,7 @@
   },
   "permissions": [
     "webNavigation",
-    "tabs",
-    "scripting",
-    "storage"
+    "tabs"
   ],
   "host_permissions": [
     "https://gemini.google.com/*"
