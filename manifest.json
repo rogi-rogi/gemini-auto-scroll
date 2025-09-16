@@ -7,8 +7,7 @@
     "128" : "logo.png"
   },
   "permissions": [
-    "webNavigation",
-    "tabs"
+    "webNavigation"
   ],
   "host_permissions": [
     "https://gemini.google.com/*"
@@ -23,4 +22,5 @@
       "js": ["constants.js", "ui.js", "features.js", "content.js", "background.js"]
     }
   ]
+
 }
