@@ -47,13 +47,13 @@ function setupFeaturesForPage(uiElements) {
         }
 
         let lastScrollTop = history.scrollTop;
-        container.onscroll = () => { lastScrollTop = history.scrollTop; };
+        history.onscroll = () => { lastScrollTop = history.scrollTop; };
 
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                container.scrollTop = lastScrollTop;
+                history.scrollTop = lastScrollTop;
                 }, 500);
         });
 
