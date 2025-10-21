@@ -8,6 +8,9 @@
 
 **Gemini Auto Scroll**은 Google Gemini 웹사이트의 사용자 경험을 향상시키기 위해 제작된 브라우저 확장 프로그램입니다. 긴 대화 내용을 쉽게 탐색할 수 있는 동적 목차(TOC) 기능과 스크롤 위치 복원 기능을 제공하여 생산성을 높여줍니다.
 
+[크롬 웹스토어](https://chromewebstore.google.com/detail/gemini-auto-scroll/amjhknhpkgplkicfljkjdmokbddmcgoc)에서도 설치 가능합니다.
+
+
 ## ✨ 주요 기능
 
 - **동적 목차 (TOC)**: 현재 채팅의 모든 사용자 질문을 기반으로 목차를 자동 생성합니다.
