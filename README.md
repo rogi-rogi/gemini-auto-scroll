@@ -20,7 +20,7 @@
 
 ## 🚀 설치 방법
 
-이 확장 프로그램은 현재 스토어에 등록되어 있지 않으므로, 아래와 같이 수동으로 설치해야 합니다.
+이 확장 프로그램은 현재 [스토어에 등록](https://chromewebstore.google.com/detail/gemini-auto-scroll/amjhknhpkgplkicfljkjdmokbddmcgoc)되어 있으며, 아래와 같이 수동으로도 설치할 수 있습니다.
 
 1.  이 저장소를 로컬 컴퓨터에 복제하거나 다운로드합니다.
 2.  Chrome/Edge 브라우저에서 `chrome://extensions` 페이지를 엽니다.
